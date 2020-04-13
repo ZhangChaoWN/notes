@@ -109,3 +109,23 @@ gceasy.io给出的文档链接：[outofmemoryerror2.pdf](https://tier1app.files.
 
 
 [jvm参数解释](https://stackoverflow.com/questions/10486375/print-all-jvm-flags)
+
+## 工具
+oracle的java troubleshooting guide建议使用jcmd替代jstack，原文：
+> The release of JDK 8 introduced Java Mission Control, Java Flight Recorder, and jcmd utility for diagnosing problems with JVM and Java applications. It is suggested to use the latest utility, jcmd instead of the previous jstack utility for enhanced diagnostics and reduced performance overhead.
+来源：https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/tooldescr016.html
+
+## 线程的状态
+
+问题的背景：java程序不响应的情况下，可以通过jstack工具列出程序中的线程的栈信息，通过逐个查看线程的栈，可以得出大多数线程都在执行至哪行代码的时候block住了，例如等待HTTP应答并且设置了很长的超时时间，导致线程池中没有线程可用，所以服务器无法响应新的请求，这个分析方法主要关注的是栈信息，也就是哪个方法调了哪个方法，线程当前执行到了哪一行代码，但是jstack输出中还有一个线程状态信息不知道什么意思（例：java.lang.Thread.State: RUNNABLE），如果能弄清楚，对于以后的问题排查分析或许会有帮助。
+
+可以考虑查阅这些资料：
+jstack工具的文档
+jvm specification
+java doc java.lang.Thread
+搜索引擎搜索thread state
+
+java doc：https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.State.html 中有简要的说明，但是有一些细节还是不是非常清晰。
+
+## 如何解读 cms gc log
+https://blogs.oracle.com/poonam/understanding-cms-gc-logs
