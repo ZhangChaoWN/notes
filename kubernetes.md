@@ -85,3 +85,21 @@ page cache的[维基百科条目](https://en.wikipedia.org/wiki/Page_cache)
 上面这篇文章引用了docker文档的一段内容，说多个cgroup都对某个文件进行读取，对应文件cache产生的内存开销会被这些cgroups分摊。
 
 上面的内容说明 linux cgroup 会统计 cache 使用量，但是，cgroup使用的cache是否会被限制，是和RSS一起被限制的呢？还是独立限制的呢？
+
+## etcd
+
+etcd文档摘录：
+
+> ZooKeeper solves the same problem as etcd: distributed system coordination and metadata storage. However, etcd has the luxury of hindsight taken from engineering and operational experience with ZooKeeper’s design and implementation.
+
+>  The name "etcd" originated from two ideas, the unix "/etc" folder and "d"istributed systems. The "/etc" folder is a place to store configuration data for a single system whereas etcd stores configuration information for large scale distributed systems. Hence, a "d"istributed "/etc" is "etcd".
+
+https://github.com/etcd-io/etcd/blob/master/Documentation/learning/why.md
+
+## tcpdump
+
+容器里面没有安装tcpdump, 去宿主机上抓，但是在宿主机上不知道抓哪个interface
+
+一种方法，通过参数　-i any，抓取所有interface
+
+另一个方法：[一个主机上有很多容器，可以定位某个特定容器的interface.](https://community.pivotal.io/s/article/How-to-get-tcpdump-for-containers-inside-Kubernetes-pods)
