@@ -103,3 +103,15 @@ https://github.com/etcd-io/etcd/blob/master/Documentation/learning/why.md
 一种方法，通过参数　-i any，抓取所有interface
 
 另一个方法：[一个主机上有很多容器，可以定位某个特定容器的interface.](https://community.pivotal.io/s/article/How-to-get-tcpdump-for-containers-inside-Kubernetes-pods)
+
+## kubernetes volumn, docker storage, linux mount
+
+参考资料：
+
+https://docs.docker.com/storage/
+
+https://kubernetes.io/docs/concepts/storage/volumes/
+
+https://docs.docker.com/storage/storagedriver/
+
+http://man7.org/linux/man-pages/man8/mount.8.html
