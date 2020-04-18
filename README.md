@@ -1,1 +1,1 @@
-一些笔记，关于学习、软件开发。
+一些笔记，关于学习、软件开发。https://zhangchaown.github.io/notes/
